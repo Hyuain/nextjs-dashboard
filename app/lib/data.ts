@@ -14,7 +14,7 @@ import { unstable_noStore as noStore } from "next/cache";
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  // noStore()
+  noStore()
 
   try {
     // Artificially delay a response for demo purposes.
@@ -34,7 +34,7 @@ export async function fetchRevenue() {
 }
 
 export async function fetchLatestInvoices() {
-  // noStore()
+  noStore()
 
   try {
     const data = await sql<LatestInvoiceRaw>`
@@ -56,7 +56,7 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
-  // noStore()
+  noStore()
 
   try {
     // You can probably combine these into a single SQL query
@@ -97,7 +97,7 @@ export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
 ) {
-  // noStore()
+  noStore()
 
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
